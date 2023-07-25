@@ -3,7 +3,11 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
+use App\Models\UserInfo;
+use App\Models\User;
+use App\Models\Product;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,5 +22,13 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+//        $this->call([
+//            CategorySeeder::class
+//        ]);
+//        Category::factory(50)->create();
+//        UserInfo::factory(50)->create();
+//        User::factory(10)->create();
+        Product::factory(10)->create();
     }
 }

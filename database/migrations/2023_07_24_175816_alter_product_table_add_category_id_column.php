@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         //
-        Schema::table('categories',function(Blueprint $table){
-            $table->string('path')->nullable();
-            $table->softDeletes();
+        Schema::table('products',function(Blueprint $table){
+            $table->string('slug')->nullable();
+            $table->integer('category_id');
         });
     }
 
@@ -24,9 +24,8 @@ return new class extends Migration
     public function down(): void
     {
         //
-        Schema::table('categories', function(Blueprint $table){
-            $table->dropColumn('path');
-            $table->dropSoftDeletes();
+        Schema::table('products', function(Blueprint $table){
+            $table->dropColumn('slug','category_id');
         });
     }
 };

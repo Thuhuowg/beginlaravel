@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
-        Schema::table('categories',function(Blueprint $table){
-            $table->string('path')->nullable();
-            $table->softDeletes();
+        Schema::create('actor_films', function (Blueprint $table) {
+            $table->id();
+            $table->integer('actor_id');
+            $table->integer('film-id');
+            $table->timestamps();
         });
     }
 
@@ -23,10 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
-        Schema::table('categories', function(Blueprint $table){
-            $table->dropColumn('path');
-            $table->dropSoftDeletes();
-        });
+        Schema::dropIfExists('actor_films');
     }
 };
