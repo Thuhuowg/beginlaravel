@@ -11,6 +11,7 @@
 <table>
     <thead>
     <tr>
+        <th>Image</th>
         <th>ID</th>
         <th>Film</th>
         <th>Actor</th>
@@ -20,12 +21,19 @@
     <tbody>
     @foreach($films as $film)
         <tr>
+            <td>
+                @if($film->images)
+                    @foreach($film->images as $image)
+                        <img src="{{$image->path}}"/>
+                    @endforeach
+                @endif
+            </td>
             <td>{{$film->id}}</td>
             <td>{{$film->name}}</td>
             <td>
                 @if($film->actors)
                     @foreach($film->actors as $actor)
-                        {{$actor->name}}
+                        {{$actor->name}}<br>
                     @endforeach
                 @endif
             </td>
@@ -38,6 +46,7 @@
 <table>
     <thead>
     <tr>
+        <th>Image</th>
         <th>ID</th>
         <th>Actor</th>
         <th>Film</th>
@@ -47,12 +56,19 @@
     <tbody>
     @foreach($actors as $actor)
         <tr>
+            <td>
+                @if($actor->images)
+                    @foreach($actor->images as $image)
+                        <img src="{{$image->path}}"/>
+                    @endforeach
+                @endif
+            </td>
             <td>{{$actor->id}}</td>
             <td>{{$actor->name}}</td>
             <td>
                 @if($actor->films)
                     @foreach($actor->films as $film)
-                        {{$film->name}}
+                        {{$film->name}}<br>
                     @endforeach
                 @endif
             </td>
