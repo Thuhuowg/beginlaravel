@@ -22,3 +22,8 @@ Route::get('actor-film', function (){
     $films= \App\Models\Film::all();
     return view('film',compact('actors','films'));
 });
+Route::get('tag-post', function (){
+    $posts = \App\Models\Post::all();
+    $products = Product::all();
+    return view('tag',compact('posts', 'products'));
+});
